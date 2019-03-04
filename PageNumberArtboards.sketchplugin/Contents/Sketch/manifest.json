@@ -1,0 +1,19 @@
+{
+  "commands" : [
+    {
+      "script" : "PageNumbers.js",
+      "name" : "Number Pages",
+      "handlers" : "onRun",
+      "identifier" : "pagenumbers"
+    }
+  ],
+  "menu" : {
+    "isRoot": true,
+    "items" : [
+      "pagenumbers"
+    ],
+    "title" : "Add Page Numbers"
+  },
+  "description" : "Add page numbers to artboards",
+  "name" : "Page Numbers"
+}
