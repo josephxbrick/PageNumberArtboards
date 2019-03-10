@@ -1,7 +1,7 @@
 # PageNumberArtboards
 A Sketch plugin that adds page numbers to artboards on the current Sketch page using a symbol instance to display the page number. 
 
-To get a page number, an artboard needs to include a symbol instance with a text override named '<pageNum>'. The name of the symbol instance itself does not matter. Note that this override cannot be in a nested symbol.
+To get a page number, an artboard needs to include a symbol instance with a text override named `"<pageNum>"`. The name of the symbol instance itself does not matter. Note that this override cannot be in a nested symbol.
 
 If you wish to include other text (e.g., "Page 1") rather than just the number alone, include a '#' in the override's default override text (e.g., 'Page #'). Here is what such a symbol would look like on the Symbols page:
 
