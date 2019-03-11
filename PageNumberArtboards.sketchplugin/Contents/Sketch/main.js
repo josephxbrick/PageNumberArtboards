@@ -37,7 +37,7 @@ function updateArtboards(doc, page) {
 	let firstPageWithNumber = 0;
 	let firstPageFound = false;
 
-	for (let i = 0; i < artboardCount(); i++){
+	for (let i = 0; i < artboardCount; i++){
 		let artboard = artboards[i];
     		setTimeout(() => {
       			doc.showMessage(`Updating artboard ${i + 1}. ${((i + 1)/artboardCount * 100).toFixed(0)}% complete.`)
