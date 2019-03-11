@@ -19,15 +19,17 @@
 @import 'artboardfunctions.js';
 
 var onRun = function(context) {
-	let thisPage = context.document.currentPage();
-	updateArtboards(thisPage);
+	let doc = context.document;
+	let thisPage = doc.currentPage();
+	updateArtboards(doc, thisPage);
 }
 
-function updateArtboards(page) {
+function updateArtboards(doc, page) {
 	const startPageNum = 1;
 	const pageNumberOverrideName = '<pageNumber>';
 	let artboards = [page artboards];
 	sortArtboardsByLayout(artboards);
+	let artboardCount = artboards.count();
 
 	let curPage = startPageNum;
 	let totalPages = 0
@@ -35,8 +37,11 @@ function updateArtboards(page) {
 	let firstPageWithNumber = 0;
 	let firstPageFound = false;
 
-	for (let i = 0; i < artboards.count(); i++){
+	for (let i = 0; i < artboardCount(); i++){
 		let artboard = artboards[i];
+    		setTimeout(() => {
+      			doc.showMessage(`Updating artboard ${i + 1}. ${((i + 1)/artboardCount * 100).toFixed(0)}% complete.`)
+    		}, 0);
 		layers = artboard.children();
 		for (let j = 0; j < layers.count(); j++){
 			let layer = layers[j];
@@ -58,7 +63,9 @@ function updateArtboards(page) {
 	// summary
 	const br = String.fromCharCode(13);
 	const q = String.fromCharCode(34);
-	alert('Page numbering complete.', `${br}Page numbers updated: ${numbersAdded}${br}First artboard with a page number instance: ${firstPageWithNumber}${br}Total artboards (starting at artboard ${firstPageWithNumber}): ${totalPages}`);
+	setTimeout(() => {
+		alert('Page numbering complete.', `${br}Page numbers updated: ${numbersAdded}${br}First artboard with a page number instance: ${firstPageWithNumber}${br}Total artboards (starting at artboard ${firstPageWithNumber}): ${totalPages}`)
+	}, 50);
 }
 
 // assumes non-nested symbol
